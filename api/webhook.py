@@ -131,8 +131,8 @@ async def start(message):
 
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
-        content_lenght = int(self.headers['Content-Length'])
-        post_data = self.rfile.read(content_lenght)
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length)
         update_dict = json.loads(post_data.decode('utf-8'))
 
         asyncio.run(self.process_update(update_dict))
