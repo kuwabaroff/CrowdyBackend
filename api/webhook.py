@@ -54,21 +54,21 @@ async def start(message):
                 file_url = f"https://api.telegram.org/file/bot{BOT_TOKEN}/{file_path}"
 
                 # Download the image
-                response = requests.get(file_url)
-                if response.status_code == 200:
+                #response = requests.get(file_url)
+                #if response.status_code == 200:
                     # Upload to Firebase Storage
-                    blob = bucket.blob(f"user_images/{user_id}.jpg")
-                    blob.upload_from_string(response.content, content_type='image/jpeg')
+                #    blob = bucket.blob(f"user_images/{user_id}.jpg")
+                #    blob.upload_from_string(response.content, content_type='image/jpeg')
 
                     # Generate the correct URL
-                    user_image = blob.generate_signed_url(datetime.timedelta(days=365), method='GET')
-                else:
-                    user_image = None
-            else:
-                user_image = None
+                #    user_image = blob.generate_signed_url(datetime.timedelta(days=365), method='GET')
+                #else:
+                    #user_image = None
+            #else:
+                #user_image = None
             
             user_data = {
-                'userImage': user_image,
+                #'userImage': user_image,
                 'firstName': user_first_name,
                 'lastName': user_last_name,
                 'username': user_username,
@@ -108,7 +108,7 @@ async def start(message):
                         'addedValue': bonus_amount,
                         'firstName': user_first_name,
                         'lastName': user_last_name,
-                        'userImage': user_image,
+                        #'userImage': user_image,
                     }
 
                     referrar_ref.update({
