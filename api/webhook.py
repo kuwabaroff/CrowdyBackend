@@ -14,6 +14,13 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 bot = AsyncTeleBot(BOT_TOKEN)
 
+# Initialize Firebase
+firebase_config = json.loads(os.environ.get9('FIREBASE_SERVICE_ACCOUNT'))
+cred = credentials.Certificate(firebase_config)
+firebase_admin.initialize_app(cred, {'storageBucket': 'crowdy-ec6e8.appstop.com'})
+db = firestore.client()
+bucket = storage.bucket()
+
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
         content_lenght = int(self.headers['Content-Lenght'])
