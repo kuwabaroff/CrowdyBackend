@@ -36,7 +36,7 @@ async def start(message):
     is_premium = message.from_user.is_premium
     text = message.text.split()
     welcome_message = (
-        f"Hi, {user_first_name}!\n"
+        f"Hi, {user_username}!\n"
         f"Welcome to Crowdy!\n"
         f"More than probably nothing.\n"
     )
